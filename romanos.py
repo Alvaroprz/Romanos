@@ -65,7 +65,8 @@ def romano_a_entero(romano):
         
         actual = digitos_romanos.get(letra)
         if anterior < actual:
-            if anterior == 0 or actual == anterior * 5 or actual == anterior * 10:
+            es_resta_valida = resta_valida(anterior, actual)
+            if es_resta_valida:
                 resultado = resultado + actual - anterior * 2
             else:
                 return "ERROR: no pueo restar eso!!"
@@ -75,6 +76,13 @@ def romano_a_entero(romano):
         anterior = actual
 
     return resultado
+
+def resta_valida(anterior, actual):
+    es_cero = anterior == 0
+    resta_tipo_uno = actual == anterior * 5 or actual == anterior * 10
+    no_es_tipo_cinco = anterior not in (5, 50, 500)
+    es_resta_valida = (es_cero or resta_tipo_uno) and no_es_tipo_cinco
+    return es_resta_valida
 
 
 pruebas = [
