@@ -93,12 +93,3 @@ def resta_valida(anterior, actual):
     no_es_tipo_cinco = anterior not in (5, 50, 500)
     es_resta_valida = (es_cero or resta_tipo_uno) and no_es_tipo_cinco
     return es_resta_valida
-
-
-pruebas = [
-    #'A', '', 'XXii', 3, ['X', 'X'], 
-    'I', 'MCXXIII', 'XVI', 'CDVII', "XC", "IV"
-]
-
-for elem in pruebas:
-    print(elem, romano_a_entero(elem))
