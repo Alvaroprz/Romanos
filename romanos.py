@@ -59,11 +59,21 @@ def romano_a_entero(romano):
     
     resultado = 0
     anterior = 0
+    repeticiones = 0
+
     for letra in romano:
         if letra not in digitos_romanos:
             return 'ERROR: no son símbolos de número romano válidos'
         
         actual = digitos_romanos.get(letra)
+
+        if actual == anterior:
+            repeticiones = repeticiones + 1
+        else:
+            repeticiones = 0
+        if repeticiones >= 3:
+            return "ERROR: no puedes tener mas de tres veces seguidas el mismo simbolo"
+        
         if anterior < actual:
             es_resta_valida = resta_valida(anterior, actual)
             if es_resta_valida:
