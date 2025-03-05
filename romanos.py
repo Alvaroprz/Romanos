@@ -64,9 +64,11 @@ def romano_a_entero(romano):
             return 'ERROR: no son símbolos de número romano válidos'
         
         actual = digitos_romanos.get(letra)
-
         if anterior < actual:
-            resultado = resultado + actual - anterior * 2
+            if anterior == 0 or actual == anterior * 5 or actual == anterior * 10:
+                resultado = resultado + actual - anterior * 2
+            else:
+                return "ERROR: no pueo restar eso!!"
 
         else:
             resultado = resultado + actual
@@ -77,7 +79,7 @@ def romano_a_entero(romano):
 
 pruebas = [
     #'A', '', 'XXii', 3, ['X', 'X'], 
-    'I', 'MCXXIII', 'XVI', 'CDVII'
+    'I', 'MCXXIII', 'XVI', 'CDVII', "XC", "IV"
 ]
 
 for elem in pruebas:
