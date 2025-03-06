@@ -1,8 +1,8 @@
-from romanos import romano_a_entero
+from romanos_funcional import romano_a_entero
 
 no_valida  = True
 
-while no_valida:
+while no_valida: 
     try:
         numero = input("Escribe un número romano: ")
         print(romano_a_entero(numero))
