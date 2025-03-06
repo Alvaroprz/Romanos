@@ -14,5 +14,11 @@ class RomanosTest(unittest.TestCase):
     
     def test_no_mas_tres_simbolos_seguidos(self):
         self.assertEqual(romano_a_entero("IIII"), "ERROR: no puedes tener mas de tres veces seguidas el mismo simbolo")
+    
+    def test_no_repetir_letras_con_valor_cinco(self):
+        self.assertEqual(romano_a_entero("VV"), "ERROR: tipo no 5 repetidos")
+        self.assertEqual(romano_a_entero("LL"), "ERROR: tipo no 5 repetidos")
+        self.assertEqual(romano_a_entero("DD"), "ERROR: tipo no 5 repetidos")
+
 
 unittest.main()
